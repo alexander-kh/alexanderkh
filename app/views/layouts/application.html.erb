@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <% if signed_in? %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% end %>
+    
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </body>
 </html>

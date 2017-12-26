@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'home#index'
+
+  get 'admin', to: 'admin#index'
+  
+  controller :sessions do
+    get 'sign_in' => :new
+    post 'sign_in' => :create
+    delete 'sign_out' => :destroy
+  end
 end
