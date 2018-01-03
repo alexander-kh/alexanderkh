@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  
   root to: 'home#index'
 
   get 'admin', to: 'admin#index'
+  
+  get 'learning', to: 'learning#index'
+  
+  resources :books, path: '/learning/books'
   
   controller :sessions do
     get 'sign_in' => :new

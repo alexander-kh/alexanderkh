@@ -1,0 +1,7 @@
+<table>
+  <tr>
+    <td><%= render 'book_details', book: @book %></td>
+    <td><%= link_to 'Edit', edit_book_path(@book) %></td>
+    <td><%= link_to 'Remove', @book, method: :delete %></td>
+  </tr>
+</table>

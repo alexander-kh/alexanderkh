@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   private
   
   def require_signing_in
-    unless session[:admin_id]
-      redirect_to sign_in_path
+    unless Admin.find_by(id: session[:admin_id])
+      redirect_to sign_in_url
     end
   end
 end
