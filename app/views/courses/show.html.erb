@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <td><a href="<%= @course.link %>"><%= @course.title %></a> | <%= @course.platform %></td>
+    <td><%= link_to 'Edit', edit_course_path(@course) %></td>
+    <td><%= link_to 'Remove', @course, method: :delete %></td>
+  </tr>
+</table>
+<div>
+  <%= link_to 'Courses', courses_path %>
+</div>

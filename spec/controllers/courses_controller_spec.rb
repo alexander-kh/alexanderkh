@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe BooksController, type: :controller do
-  
+RSpec.describe CoursesController, type: :controller do
   describe "GET #index" do
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
     end
   end
-    
+  
   describe "GET #new" do
     context "without authorization" do
       it "redirects to the sign in page" do
@@ -18,22 +17,20 @@ RSpec.describe BooksController, type: :controller do
     end
     
     context "when authorized" do
-      before { sign_in_as_admin }
-      
       it "returns http success" do
-        get :new
+        get :index
         expect(response).to have_http_status(:success)
       end
     end
   end
   
   describe "POST #create" do
-    let(:book_attrs) { FactoryBot.attributes_for(:book) }
+    let(:course_attrs) { FactoryBot.attributes_for(:course) }
     
     context "without authorization" do
       it "redirects to the sign in page" do
-        expect { post :create, params: { book: book_attrs } }.
-          to_not change(Book, :count)
+        expect { post :create, params: { course: course_attrs } }.
+          not_to change(Course, :count)
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -41,20 +38,20 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "creates new book and redirects to the learning page" do
-        expect { post :create, params: { book: book_attrs } }.
-          to change(Book, :count).by(1)
+      it "creates new course and redirects to the learning page" do
+        expect { post :create, params: { course: course_attrs }}.
+          to change(Course, :count).by(1)
         expect(response).to redirect_to(learning_url)
       end
     end
   end
   
   describe "GET #show" do
-    let(:book) { FactoryBot.create(:book) }
+    let(:course) { FactoryBot.create(:course) }
     
-    context "without authorization" do
+    context "whithout authorization" do
       it "redirects to the sign in page" do
-        get :show, params: { id: book.id }
+        get :show, params: { id: course.id }
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -63,18 +60,18 @@ RSpec.describe BooksController, type: :controller do
       before { sign_in_as_admin }
       
       it "returns http success" do
-        get :show, params: { id: book.id }
+        get :show, params: { id: course.id }
         expect(response).to have_http_status(:success)
       end
     end
   end
   
   describe "GET #edit" do
-    let(:book) { FactoryBot.create(:book) }
+    let(:course) { FactoryBot.create(:course) }
     
     context "without authorization" do
       it "redirects to the sign in page" do
-        get :edit, params: { id: book.id }
+        get :edit, params: { id: course.id }
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -83,20 +80,20 @@ RSpec.describe BooksController, type: :controller do
       before { sign_in_as_admin }
       
       it "returns http success" do
-        get :edit, params: { id: book.id }
+        get :edit, params: { id: course.id }
         expect(response).to have_http_status(:success)
       end
     end
   end
   
   describe "PATCH #update" do
-    let(:book) { FactoryBot.create(:book, pages: 375) }
+    let(:course) { FactoryBot.create(:course, platform: "edx") }
     
     context "without authorization" do
       it "redirects to the sign in page" do
-        patch :update, params: { id: book.id, book: { pages: 380 } }
-        book.reload
-        expect(book.pages).to eq(375)
+        patch :update, params: { id: course.id, course: { platform: "edX" } }
+        course.reload
+        expect(course.platform).to eq("edx")
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -104,22 +101,22 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "updates the book and redirects to the books page" do
-        patch :update, params: { id: book.id, book: { pages: 380 } }
-        book.reload
-        expect(book.pages).to eq(380)
-        expect(response).to redirect_to(books_url)
+      it "updates the course and redirects to the courses page" do
+        patch :update, params: { id: course.id, course: { platform: "edX" } }
+        course.reload
+        expect(course.platform).to eq("edX")
+        expect(response).to redirect_to(courses_url)
       end
     end
   end
   
   describe "DELETE #destroy" do
-    let!(:book) { FactoryBot.create(:book) }
+    let!(:course) { FactoryBot.create(:course) }
     
     context "without authorization" do
       it "redirects to the sign in page" do
-        expect { delete :destroy, params: { id: book.id } }.
-          to_not change(Book, :count)
+        expect { delete :destroy, params: { id: course.id } }.
+          to_not change(Course, :count)
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -127,10 +124,10 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "removes the book and redirects to the books page" do
-        expect { delete :destroy, params: { id: book.id } }.
-          to change(Book, :count).by(-1)
-        expect(response).to redirect_to(books_url)
+      it "removes the course and redirects to the courses page" do
+        expect { delete :destroy, params: { id: course.id } }.
+          to change(Course, :count).by(-1)
+        expect(response).to redirect_to(courses_url)
       end
     end
   end

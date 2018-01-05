@@ -1,0 +1,27 @@
+<%= form_for course do |f| %>
+  <% if course.errors.any? %>
+    <div>
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :link %>
+    <%= f.url_field :link %>
+  </div>
+  <div>
+    <%= f.label :platform %>
+    <%= f.text_field :platform %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

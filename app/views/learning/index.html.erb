@@ -2,14 +2,30 @@
 <div>
   Books, online courses and style guides that have become an integral part of my learning path and continue to inspire for further improvement
 </div>
-<div>Books</div>
-<div>
-  <% latest_added_books(5).each do |book| %>
-    <div>
-      <a href="<%= book.link %>"><%= book.title %></a> by <%= book.author %>, <%= book.year %>
-    </div>
-  <% end %>
-</div>
-<div>
-  <%= link_to 'Full list', books_path %>
-</div>
+<section>
+  <header>Books</header>
+  <div>
+    <% latest_added_books(5).each do |book| %>
+      <div>
+        <a href="<%= book.link %>"><%= book.title %></a> by <%= book.author %>, <%= book.year %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Full list', books_path %>
+  </div>
+</section>
+
+<section>
+  <header>Courses</header>
+  <div>
+    <% courses.each do |course| %>
+      <div>
+        <a href="<%= course.link %>"><%= course.title %></a> | <%= course.platform %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Full list', courses_path %>
+  </div>
+</section>

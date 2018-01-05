@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :course do
-    title "title"
+    sequence :title do |n|
+      "title#{n}"
+    end
     link "http://course.test"
     platform "platform"
   end

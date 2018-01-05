@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   resources :books, path: '/learning/books'
   
+  resources :courses, path: '/learning/courses'
+  
   controller :sessions do
     get 'sign_in' => :new
     post 'sign_in' => :create
