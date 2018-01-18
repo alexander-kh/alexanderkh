@@ -1,0 +1,7 @@
+<div class="course-details">
+  <%=
+    link_to_if signed_in?, course.title, course_path(course) do
+      link_to course.title, course.link, target: :_blank
+    end
+  %> | <%= course.platform %>
+</div>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LearningHelper, type: :helper do
+RSpec.describe HomeHelper, type: :helper do
   describe "#latest_added_books" do
     let(:books) { FactoryBot.build_stubbed_list(:book, 5) }
     

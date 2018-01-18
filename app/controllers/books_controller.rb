@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :require_signing_in, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :require_signing_in,
+                  only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -13,7 +14,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to learning_url, notice: "Book was successfully created"
+      redirect_to books_url
     else
       render :new
     end
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
   
   def update
     if @book.update(book_params)
-      redirect_to books_url, notice: "Book was successfully updated"
+      redirect_to books_url
     else
       render :edit
     end
@@ -35,7 +36,7 @@ class BooksController < ApplicationController
   
   def destroy
     @book.destroy
-    redirect_to books_url, notice: "Book was successfully deleted"
+    redirect_to books_url
   end
   
   private

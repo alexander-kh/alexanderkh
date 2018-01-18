@@ -1,24 +1,30 @@
-<h1>Thanks for coming!</h1>
-<h2>I'm Alexander, a software engineer, and a passionate learner.</h2>
-<h3>My focus is on full-stack web development with emphasis on back-end</h3>
-<div>Technologies in use:</div>
-<div>
-  <ul>
-    <li>Front-end: HTML (HAML), CSS (SASS), JavaScript</li>
-    <li>Back-end: Ruby, Rails</li>
-    <li>Data store layer: PostgreSQL</li>
-    <li>Testing: RSpec, Capybara, Jasmine, Cucumber</li>
-  </ul>
-</div>
-<div>
-  <%= link_to 'GitHub account', '#' %>
-</div>
-<div>
-  <%= link_to 'LinkedIn account', '#' %>
-</div>
-<div>
-  <%= mail_to 'alex.khlipun@icloud.com', 'E-mail' %>
-</div>
-<div>
-  <%= link_to 'Learning', learning_path %>
-</div>
+<section>
+  <h1>Hi, I'm Alex</h1>
+  <p>I'm a software engineer, and a passionate learner.</p>
+  <p>My focus is on full-stack web development with emphasis on back-end.</p>
+  <section>
+    <h3>Technologies in use:</h3>
+    <ul class="default-ul">
+      <li>Front-end: HTML (HAML), CSS (SASS), JavaScript</li>
+      <li>Back-end: Ruby, Rails</li>
+      <li>Data store layer: PostgreSQL</li>
+      <li>Testing: RSpec, Capybara, Jasmine, Cucumber</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <header>
+    <h3>Learning</h3>
+    <p>Books and online courses that have become an integral part of my learning path and continue to inspire for further improvement:</p>
+  </header>
+  <section class="books">
+    <% latest_added_books(10).each do |book| %>
+      <%= render 'books/details', book: book %>
+    <% end %>
+  </section>
+  <section class="courses">
+    <% courses.each do |course| %>
+      <%= render 'courses/details', course: course %>
+    <% end %>
+  </section>
+</section>

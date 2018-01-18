@@ -1,0 +1,29 @@
+@import "base/variables";
+
+footer {
+  background-color: $light-blue;
+  background-image: $base-gradient;
+  color: $white;
+  flex: none;
+  padding: 1.75rem 3.5rem;
+  
+  a {
+    border: none;
+    color: $white;
+    text-decoration: none;
+  }
+  
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+  }
+  
+  .copyright {
+    padding-top: $large-spacing;
+  }
+}

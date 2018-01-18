@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   describe "default scope" do
-    let(:books) { FactoryBot.create_list(:book, 5) }
+    let(:books) { FactoryBot.create_list(:book, 4) }
     
     it "returns books by creation date in descending order" do
-      expect(Book.all).to eq([books[4], books[3], books[2], books[1], books[0]])
+      expect(Book.all).to eq([books[3], books[2], books[1], books[0]])
     end
   end
   

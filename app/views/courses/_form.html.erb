@@ -2,7 +2,7 @@
   <% if course.errors.any? %>
     <div>
       <ul>
-        <% book.errors.full_messages.each do |message| %>
+        <% course.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -11,17 +11,18 @@
   
   <div>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, required: true %>
   </div>
   <div>
     <%= f.label :link %>
-    <%= f.url_field :link %>
+    <%= f.url_field :link, required: true %>
   </div>
   <div>
     <%= f.label :platform %>
-    <%= f.text_field :platform %>
+    <%= f.text_field :platform, required: true %>
   </div>
   <div>
     <%= f.submit %>
+    <%= link_to 'Cancel', courses_path, class: 'button-primary' %>
   </div>
 <% end %>

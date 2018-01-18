@@ -1,0 +1,18 @@
+$white: #fff;
+$graphite: #3d3e44;
+$blue: #1564d0;
+$light-blue: #1ca7e8;
+$light-gray: #dbdbe0;
+$lightest-gray: #fafafa;
+$deep-orange: #f15729;
+$deep-pink: #b4004e;
+
+$base-gradient: radial-gradient(circle at 75% 25%, $light-blue, $blue);
+
+$sans-serif: -apple-system, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+$base-font-size: 1rem;
+$small-font-size: 0.8rem;
+$base-spacing: 0.375rem;
+$large-spacing: $base-spacing * 2;
+$largest-spacing: $base-spacing * 4;

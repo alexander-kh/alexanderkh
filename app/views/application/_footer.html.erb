@@ -1,0 +1,34 @@
+<footer>
+  <nav>
+    <section>
+      <ul>
+        <li><h4>Learning</h4></li>
+        <li><%= link_to 'Books', books_path %></li>
+        <li><%= link_to 'Courses', courses_path %></li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li><h4>Contact</h4><li>
+        <li>
+          <%= link_to(
+              'GitHub',
+              'https://github.com/alexander-kh', target: :_blank
+          ) %>
+        </li>
+        <li>
+          <%= link_to(
+              'LinkedIn',
+              'https://www.linkedin.com/in/alexander-kh/', target: :_blank
+          ) %>
+        </li>
+        <li><%= mail_to 'alex.khlipun@icloud.com', 'E-mail' %></li>
+      </ul>
+    </section>
+  </nav>
+  <div class="copyright">
+    <small>
+      &copy; <%= current_year %> <%= link_to 'Alexander Khlipun', root_path %>
+    </small>
+  </div>
+</footer>

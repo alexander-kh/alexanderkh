@@ -1,17 +1,9 @@
-<div>
-  <% if signed_in? %>
-    <%=link_to 'Add a book', new_book_path %>
-  <% end %>
-</div>
-<% @books.each do |book| %>
-  <table>
-    <tr>
-      <td><a href="<%= book.link %>"><%= book.title %></a> by <%= book.author %>, <%= book.year %></td>
-      <% if signed_in? %>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Remove', book, method: :delete %></td>
-      <% end %>
-    </tr>
-  </table>
+<% if signed_in? %>
+  <%= link_to 'Add a book', new_book_path, class: 'button-add-an-item' %>
 <% end %>
-<%= link_to 'Learning page', learning_path %>
+<% books.each do |book| %>
+  <%= render 'details', book: book %>
+<% end %>
+<div class="nav-link-wrapper">
+  <%= link_to 'Home', root_path, class: 'nav-link' %>
+</div>

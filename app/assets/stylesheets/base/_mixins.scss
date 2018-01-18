@@ -1,0 +1,23 @@
+@mixin base-button {
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 2px;
+  color: $graphite;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $small-font-size;
+  line-height: 1.7;
+  margin-right: $large-spacing;
+  margin-top: $largest-spacing;
+  outline: none;
+  padding: $base-spacing $largest-spacing;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  
+  &:hover,
+  &:active {
+    border-color: rgba($blue, 0.75);
+  }
+}

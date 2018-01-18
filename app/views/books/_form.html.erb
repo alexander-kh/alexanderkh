@@ -1,6 +1,6 @@
 <%= form_for book do |f| %>
   <% if book.errors.any? %>
-    <div>
+    <div class="flash_alert">
       <ul>
         <% book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,7 +11,7 @@
   
   <div>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, required: true %>
   </div>
   <div>
     <%= f.label :subtitle %>
@@ -19,19 +19,19 @@
   </div>
   <div>
     <%= f.label :author %>
-    <%= f.text_field :author %>
+    <%= f.text_field :author, require: true %>
   </div>
   <div>
     <%= f.label :link %>
-    <%= f.url_field :link %>
+    <%= f.url_field :link, required: true %>
   </div>
   <div>
     <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.text_field :year, required: true %>
   </div>
   <div>
     <%= f.label :publisher %>
-    <%= f.text_field :publisher %>
+    <%= f.text_field :publisher, required: true %>
   </div>
   <div>
     <%= f.label :isbn %>
@@ -43,5 +43,6 @@
   </div>
   <div>
     <%= f.submit %>
+    <%= link_to 'Cancel', books_path, class: 'button-primary' %>
   </div>
 <% end %>

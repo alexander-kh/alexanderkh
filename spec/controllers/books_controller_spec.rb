@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  
   describe "GET #index" do
     it "returns http success" do
       get :index
+      
       expect(response).to have_http_status(:success)
     end
   end
@@ -13,6 +13,7 @@ RSpec.describe BooksController, type: :controller do
     context "without authorization" do
       it "redirects to the sign in page" do
         get :new
+        
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -22,6 +23,7 @@ RSpec.describe BooksController, type: :controller do
       
       it "returns http success" do
         get :new
+        
         expect(response).to have_http_status(:success)
       end
     end
@@ -33,7 +35,7 @@ RSpec.describe BooksController, type: :controller do
     context "without authorization" do
       it "redirects to the sign in page" do
         expect { post :create, params: { book: book_attrs } }.
-          to_not change(Book, :count)
+          not_to change(Book, :count)
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -41,10 +43,10 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "creates new book and redirects to the learning page" do
+      it "creates new book and redirects to the books page" do
         expect { post :create, params: { book: book_attrs } }.
           to change(Book, :count).by(1)
-        expect(response).to redirect_to(learning_url)
+        expect(response).to redirect_to(books_url)
       end
     end
   end
@@ -55,6 +57,7 @@ RSpec.describe BooksController, type: :controller do
     context "without authorization" do
       it "redirects to the sign in page" do
         get :show, params: { id: book.id }
+        
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -64,6 +67,7 @@ RSpec.describe BooksController, type: :controller do
       
       it "returns http success" do
         get :show, params: { id: book.id }
+        
         expect(response).to have_http_status(:success)
       end
     end
@@ -75,6 +79,7 @@ RSpec.describe BooksController, type: :controller do
     context "without authorization" do
       it "redirects to the sign in page" do
         get :edit, params: { id: book.id }
+        
         expect(response).to redirect_to(sign_in_url)
       end
     end
@@ -84,6 +89,7 @@ RSpec.describe BooksController, type: :controller do
       
       it "returns http success" do
         get :edit, params: { id: book.id }
+        
         expect(response).to have_http_status(:success)
       end
     end
@@ -96,6 +102,7 @@ RSpec.describe BooksController, type: :controller do
       it "redirects to the sign in page" do
         patch :update, params: { id: book.id, book: { pages: 380 } }
         book.reload
+        
         expect(book.pages).to eq(375)
         expect(response).to redirect_to(sign_in_url)
       end
@@ -107,6 +114,7 @@ RSpec.describe BooksController, type: :controller do
       it "updates the book and redirects to the books page" do
         patch :update, params: { id: book.id, book: { pages: 380 } }
         book.reload
+        
         expect(book.pages).to eq(380)
         expect(response).to redirect_to(books_url)
       end
@@ -119,7 +127,7 @@ RSpec.describe BooksController, type: :controller do
     context "without authorization" do
       it "redirects to the sign in page" do
         expect { delete :destroy, params: { id: book.id } }.
-          to_not change(Book, :count)
+          not_to change(Book, :count)
         expect(response).to redirect_to(sign_in_url)
       end
     end

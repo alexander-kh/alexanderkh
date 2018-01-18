@@ -7,6 +7,15 @@ RSpec.describe SessionsController, type: :controller do
       
       expect(response).to have_http_status(:success)
     end
+    
+    it "redirects to the admin page when signed in" do
+      admin = FactoryBot.create(:admin)
+      session[:admin_id] = admin.id
+      
+      get :new
+      
+      expect(response).to redirect_to(admin_url)
+    end
   end
   
   describe "POST #create" do
@@ -23,7 +32,8 @@ RSpec.describe SessionsController, type: :controller do
     
     context "with invalid data" do
       it "redirects to the sign in page" do
-        post :create, params: { email: "test@email.com", password: "password123" }
+        post :create, params: { email: "test@email.com",
+                                password: "password123" }
         
         expect(session[:admin_id]).to be_nil
         expect(response).to redirect_to(sign_in_url)

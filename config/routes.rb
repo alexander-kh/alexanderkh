@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index'
   
-  get 'learning', to: 'learning#index'
+  resources :books
   
-  resources :books, path: '/learning/books'
-  
-  resources :courses, path: '/learning/courses'
+  resources :courses
   
   controller :sessions do
     get 'sign_in' => :new

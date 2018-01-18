@@ -1,0 +1,29 @@
+@import "base/variables";
+@import "base/mixins";
+
+[type='submit'], .button-primary {
+  @include base-button;
+}
+
+.button-add-an-item {
+  @include base-button;
+  margin-bottom: $largest-spacing;
+  margin-top: 0;
+}
+
+.button-remove {
+  @include base-button;
+  background-color: $deep-orange;
+  border: 1px solid $deep-orange;
+  color: $white;
+  
+  &:hover,
+  &:active {
+    border-color: rgba($deep-orange, 0.75);
+  }
+}
+
+.button-sign-out {
+  float: right;
+  margin: 0;
+}

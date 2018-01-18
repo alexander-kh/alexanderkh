@@ -1,0 +1,65 @@
+@import "base/variables";
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgba($light-blue, 0.25);
+  color: $blue;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.default-ul {
+  
+  li {
+    margin-bottom: $base-spacing;
+    padding-left: 2.375rem;
+    position: relative;
+    
+    &::before {
+      background-color: $light-blue;
+      background-image: $base-gradient;
+      border-radius: 50%;
+      content: "";
+      position: absolute;
+      height: 5px;
+      left: 1.25rem;
+      margin-top: -2px;
+      top: 0.75rem;
+      width: 5px;
+    }
+  }
+}
+
+.nav-link {
+  border: none;
+  color: $graphite;
+  font-size: $small-font-size;
+  text-decoration: none;
+}
+
+.nav-link-wrapper {
+  margin-top: $base-spacing;
+}
+
+.flash_notice {
+  color: complement($deep-pink);
+  font-size: $small-font-size;
+  padding: $large-spacing 0;
+}
+
+.flash_alert {
+  color: $deep-pink;
+  font-size: $small-font-size;
+  padding: $large-spacing 0;
+}

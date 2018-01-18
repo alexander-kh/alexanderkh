@@ -1,21 +1,9 @@
-<div>
-  <% if signed_in? %>
-    <%= link_to 'Add a course', new_course_path %>
-  <% end %>
-</div>
-<% @courses.each do |course| %>
-  <table>
-    <tr>
-      <td>
-        <a href="<%= course.link %>"><%= course.title %></a> | <%= course.platform %>
-        <% if signed_in? %>
-          <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Remove', course, method: :delete %></td>
-        <% end %>
-      </td>
-    </tr>
-  </table>
+<% if signed_in? %>
+  <%= link_to 'Add a course', new_course_path, class: 'button-add-an-item' %>
 <% end %>
-<div>
-  <%= link_to 'Learning page', learning_path %>
+<% courses.each do |course| %>
+  <%= render 'details', course: course %>
+<% end %>
+<div class="nav-link-wrapper">
+  <%= link_to 'Home', root_path, class: 'nav-link' %>
 </div>

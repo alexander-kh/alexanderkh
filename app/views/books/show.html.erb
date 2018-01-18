@@ -1,10 +1,25 @@
-<table>
-  <tr>
-    <td><%= render 'book_details', book: @book %></td>
-    <td><%= link_to 'Edit', edit_book_path(@book) %></td>
-    <td><%= link_to 'Remove', @book, method: :delete %></td>
-  </tr>
-</table>
 <div>
-  <%= link_to 'Books', books_path %>
+  <%= link_to @book.title, @book.link, target: :_blank %>
+</div>
+<div>
+  <%= @book.subtitle %>
+</div>
+<div>
+  <%= @book.author %>
+</div>
+<div>
+  <%= @book.publisher %>, <%= @book.year %>
+</div>
+<div>
+  Pages: <%= @book.pages %>
+</div>
+<div>
+  ISBN: <%= @book.isbn %>
+</div>
+<div>
+  <%= link_to 'Edit', edit_book_path(@book), class: 'button-primary' %>
+  <%= link_to 'Remove', @book, method: :delete, class: 'button-remove' %>
+</div>
+<div class="nav-link-wrapper">
+  <%= link_to 'Back', :back, class: 'nav-link' %>
 </div>

@@ -3,22 +3,28 @@
   <head>
     <title>Alex</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag(
+        'application',
+        'data-turbolinks-track': 'reload'
+    ) %>
   </head>
-
+  
   <body>
-    <% if signed_in? %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% end %>
-    
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
+    <main>
+      <% if signed_in? %>
+        <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'button-sign-out' %>
       <% end %>
-    </div>
-    
-    <%= yield %>
+      
+      <% if flash.present? %>
+        <% flash.each do |key, value| -%>
+          <div class="flash_<%= key %>"><%=h value %></div>
+        <% end %>
+      <% end %>
+      
+      <%= yield %>
+    </main>
+    <%= render 'footer' %>
   </body>
 </html>
