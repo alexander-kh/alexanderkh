@@ -52,13 +52,13 @@ ul {
   margin-top: $base-spacing;
 }
 
-.flash_notice {
+.flash-notice {
   color: complement($deep-pink);
   font-size: $small-font-size;
   padding: $large-spacing 0;
 }
 
-.flash_alert {
+.flash-alert {
   color: $deep-pink;
   font-size: $small-font-size;
   padding: $large-spacing 0;
