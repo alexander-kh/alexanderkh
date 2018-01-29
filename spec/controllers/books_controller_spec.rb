@@ -43,10 +43,22 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "creates new book and redirects to the books page" do
-        expect { post :create, params: { book: book_attrs } }.
-          to change(Book, :count).by(1)
-        expect(response).to redirect_to(books_url)
+      context "when attributes are valid" do
+        it "creates new book and redirects to the books page" do
+          expect { post :create, params: { book: book_attrs } }.
+            to change(Book, :count).by(1)
+          expect(response).to redirect_to(books_url)
+        end
+      end
+      
+      context "when attributes are not valid" do
+        it "re-renders template" do
+          attrs = FactoryBot.attributes_for(:book, year: nil)
+          
+          expect { post :create, params: { book: attrs } }.
+            not_to change(Book, :count)
+          expect(response).to render_template :new
+        end
       end
     end
   end
@@ -111,12 +123,24 @@ RSpec.describe BooksController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "updates the book and redirects to the books page" do
-        patch :update, params: { id: book.id, book: { pages: 380 } }
-        book.reload
+      context "when attributes are valid" do
+        it "updates the book and redirects to the books page" do
+          patch :update, params: { id: book.id, book: { pages: 380 } }
+          book.reload
         
-        expect(book.pages).to eq(380)
-        expect(response).to redirect_to(books_url)
+          expect(book.pages).to eq(380)
+          expect(response).to redirect_to(books_url)
+        end
+      end
+      
+      context "when attributes are not valid" do
+        it "re-renders template" do
+          patch :update, params: { id: book.id, book: { year: nil } }
+          book.reload
+          
+          expect(book.year).to eq(book.year)
+          expect(response).to render_template(:edit)
+        end
       end
     end
   end

@@ -43,10 +43,22 @@ RSpec.describe CoursesController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "creates new course and redirects to the courses page" do
-        expect { post :create, params: { course: course_attrs }}.
-          to change(Course, :count).by(1)
-        expect(response).to redirect_to(courses_url)
+      context "when attributes are valid" do
+        it "creates new course and redirects to the courses page" do
+          expect { post :create, params: { course: course_attrs } }.
+            to change(Course, :count).by(1)
+          expect(response).to redirect_to(courses_url)
+        end
+      end
+      
+      context "when attributes are not valid" do
+        it "re-renders template" do
+          attrs = FactoryBot.attributes_for(:course, platform: nil)
+          
+          expect { post :create, params: { course: attrs } }.
+            not_to change(Course, :count)
+          expect(response).to render_template(:new)
+        end
       end
     end
   end
@@ -111,12 +123,24 @@ RSpec.describe CoursesController, type: :controller do
     context "when authorized" do
       before { sign_in_as_admin }
       
-      it "updates the course and redirects to the courses page" do
-        patch :update, params: { id: course.id, course: { platform: "edX" } }
-        course.reload
+      context "when attributes are valid" do
+        it "updates the course and redirects to the courses page" do
+          patch :update, params: { id: course.id, course: { platform: "edX" } }
+          course.reload
         
-        expect(course.platform).to eq("edX")
-        expect(response).to redirect_to(courses_url)
+          expect(course.platform).to eq("edX")
+          expect(response).to redirect_to(courses_url)
+        end
+      end
+      
+      context "when attributes are not valid" do
+        it "re-renders template" do
+          patch :update, params: { id: course.id, course: { platform: nil } }
+          course.reload
+          
+          expect(course.platform).to eq(course.platform)
+          expect(response).to render_template(:edit)
+        end
       end
     end
   end
