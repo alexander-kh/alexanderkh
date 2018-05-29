@@ -1,14 +1,14 @@
 <section>
-  <h1>Hi, I'm Alex</h1>
+  <h1>Hi, I'm Alexander</h1>
   <p>
     I'm a software engineer.
     My focus is on full-stack web development with an emphasis on back-end.
   </p>
   <section>
-    <h3>Comptencies:</h3>
+    <h3>Competencies:</h3>
     <ul class="default-ul">
-      <li>Front-end: HTML (HAML), CSS (SASS), JavaScript</li>
-      <li>Back-end: Ruby, Rails</li>
+      <li>Front-end: HTML (HAML, Slim), CSS (SASS), JavaScript</li>
+      <li>Back-end: Ruby, Ruby on Rails</li>
       <li>Data store layer: PostgreSQL</li>
       <li>Testing: RSpec, Capybara, Jasmine, Cucumber</li>
     </ul>
@@ -16,15 +16,18 @@
 </section>
 <section>
   <header>
-    <h3>Learning</h3>
-    <p>Books and online courses that have become an integral part of my learning path and continue to inspire for further improvement:</p>
+    <h3>Learning path</h3>
   </header>
+    <p>I'm a passionate learner striving for continuous proficiency improvement, and reading is an integral part of the day to day activity.</p>
+    <p>Recently read books are on top. The books I read now are marked as "in process".</p>
   <section class="books">
-    <% latest_added_books(10).each do |book| %>
+    <% books.each do |book| %>
       <%= render 'books/details', book: book %>
     <% end %>
   </section>
   <section class="courses">
+    <p>Online courses are also a great way of gaining and reinforcing knowledge.</p>
+    <p>
     <% courses.each do |course| %>
       <%= render 'courses/details', course: course %>
     <% end %>
