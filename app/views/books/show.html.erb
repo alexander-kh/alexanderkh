@@ -16,6 +16,11 @@
 <div>
   ISBN: <%= @book.isbn %>
 </div>
+<% if @book.project_repo.present? %>
+  <div>
+    Project: <%= link_to 'GitHub', @book.project_repo, target: :_blank %>
+  </div>
+<% end %>
 <div>
   <%= link_to 'Edit', edit_book_path(@book), class: 'button-primary' %>
   <%= link_to 'Remove', @book, method: :delete, class: 'button-remove' %>
