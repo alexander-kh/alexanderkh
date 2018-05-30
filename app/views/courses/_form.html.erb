@@ -22,6 +22,10 @@
     <%= f.text_field :platform, required: true %>
   </div>
   <div>
+    <%= f.label :certificate %>
+    <%= f.text_field :certificate_url, required: true %>
+  </div>
+  <div>
     <%= f.submit %>
     <%= link_to 'Cancel', courses_path, class: 'button-primary' %>
   </div>

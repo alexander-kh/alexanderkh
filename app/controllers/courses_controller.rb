@@ -46,6 +46,6 @@ class CoursesController < ApplicationController
   end
   
   def course_params
-    params.require(:course).permit(:title, :link, :platform)
+    params.require(:course).permit(:title, :link, :platform, :certificate_url)
   end
 end

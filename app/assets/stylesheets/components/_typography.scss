@@ -19,12 +19,22 @@ ul {
   padding: 0;
 }
 
-.default-ul {
+.base-ul {
   
   li {
     margin-bottom: $base-spacing;
     padding-left: 2.375rem;
     position: relative;
+    
+    &.edge {
+      padding-left: 1.125rem;
+      
+      &::before {
+       background-color: $light-gray;
+       background-image: none;
+       left: 0;
+      }
+    }
     
     &::before {
       background-color: $light-blue;
@@ -62,4 +72,8 @@ ul {
   color: $deep-pink;
   font-size: $small-font-size;
   padding: $large-spacing 0;
+}
+
+.small {
+  font-size: $small-font-size;
 }
