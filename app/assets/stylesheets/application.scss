@@ -37,3 +37,10 @@ main {
   flex: 1 0 auto;
   padding: 1.75rem 3.5rem;
 }
+
+.locale-switcher {
+  font-size: $small-font-size;
+  position: absolute;
+  right: 3.5rem;
+  top: 1.75rem;
+}

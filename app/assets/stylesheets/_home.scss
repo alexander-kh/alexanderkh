@@ -1,5 +1,9 @@
 @import "base/variables";
 
+.welcome {
+  color: rgba(18,170,82,0.85);
+}
+
 .books, .courses {
   padding-top: $large-spacing * 1.25;
 }
