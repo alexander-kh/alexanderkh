@@ -2,14 +2,14 @@
   <nav>
     <section>
       <ul>
-        <li><h4>Learning</h4></li>
-        <li><%= link_to 'Books', books_path %></li>
-        <li><%= link_to 'Courses', courses_path %></li>
+        <li><h4><%= t '.learning' %></h4></li>
+        <li><%= link_to (t '.books'), books_path(locale: locale) %></li>
+        <li><%= link_to (t '.courses'), courses_path(locale: locale) %></li>
       </ul>
     </section>
     <section>
       <ul>
-        <li><h4>Contact</h4><li>
+        <li><h4><%= t '.contact' %></h4><li>
         <li>
           <%= link_to(
               'GitHub',
@@ -22,13 +22,14 @@
               'https://www.linkedin.com/in/alexander-kh/', target: :_blank
           ) %>
         </li>
-        <li><%= mail_to 'alex.khlipun@icloud.com', 'E-mail' %></li>
+        <li><%= mail_to 'alex.khlipun@icloud.com', (t '.email') %></li>
       </ul>
     </section>
   </nav>
   <div class="copyright">
     <small>
-      &copy; <%= current_year %> <%= link_to 'Alexander Khlipun', root_path %>
+      &copy; <%= current_year %> <%= link_to (t '.full_name'),
+        root_path(locale: locale) %>
     </small>
   </div>
 </footer>

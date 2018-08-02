@@ -30,4 +30,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    footer:
+      learning:  "Learning"
+      books:     "Books"
+      courses:   "Courses"
+      contact:   "Contact"
+      email:     "E-mail"
+      full_name: "Alexander Khlipun"
+  
+  home:
+    index:
+      welcome: "Hi, I'm Alexander"
+      about_me: "I develop web applications, starting with the minimum viable \
+                 product (MVP), consistently improving it in accordance with \
+                 actual requirements. \
+                 I use a test-driven development approach (TDD) and follow \
+                 continuous integration and delivery principles (CI/CD)."
+      stack: "Stack:"
+      front_end: "Front-end"
+      back_end: "Back-end"
+      database: "Database layer"
+      testing_library: "for testing"
+      
+      learning_path: "Learning path"
+      books: "Below are recently studied books, and the ones I read now"
+      courses: "Completed online courses"

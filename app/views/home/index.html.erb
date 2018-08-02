@@ -1,32 +1,28 @@
 <section>
-  <h1>Hi, I'm Alexander</h1>
-  <p>
-    I'm a software engineer.
-    My focus is on full-stack web development with an emphasis on back-end.
-  </p>
+  <h1 class="welcome"><%= t '.welcome' %></h1>
+  <p><%= t '.about_me' %></p>
   <section>
-    <h3>Competencies:</h3>
+    <h3><%= t '.stack' %></h3>
     <ul class="base-ul">
-      <li>Front-end: HTML (HAML, Slim), CSS (SASS), JavaScript</li>
-      <li>Back-end: Ruby, Ruby on Rails</li>
-      <li>Data store layer: PostgreSQL</li>
-      <li>Testing: RSpec, Capybara, Jasmine, Cucumber</li>
+      <li><%= t '.front_end' %>: HTML (HAML, Slim), CSS (SASS), JavaScript</li>
+      <li><%= t '.back_end' %>: Ruby, Ruby on Rails,
+                                RSpec (<%= t '.testing_library'%>)</li>
+      <li><%= t '.database' %>: PostgreSQL</li>
     </ul>
   </section>
 </section>
 <section>
   <header>
-    <h3>Learning path</h3>
+    <h3><%= t '.learning_path' %></h3>
   </header>
-    <p>I'm a passionate learner striving for continuous proficiency improvement, and reading is an integral part of the day to day activity.</p>
-    <p>Recently read books are on top. The books I read now are marked as "in process".</p>
+    <p><%= t '.books' %>:</p>
   <section class="books">
     <% books.each do |book| %>
       <%= render 'books/details', book: book %>
     <% end %>
   </section>
   <section class="courses">
-    <p>Online courses are also a great way of gaining and reinforcing knowledge.</p>
+    <p><%= t '.courses' %>:</p>
     <p>
     <% courses.each do |course| %>
       <%= render 'courses/details', course: course %>

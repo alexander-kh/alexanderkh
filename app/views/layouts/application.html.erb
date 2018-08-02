@@ -22,7 +22,10 @@
           <div class="flash-<%= key %>"><%=h value %></div>
         <% end %>
       <% end %>
-      
+      <div class="locale-switcher">
+        <%= link_to "RU", url_for(locale: 'ru') %> |
+        <%= link_to "EN", url_for(locale: 'en') %>
+      </div>
       <%= yield %>
     </main>
     <%= render 'footer' %>
