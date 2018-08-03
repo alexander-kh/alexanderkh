@@ -4,9 +4,12 @@
   <section>
     <h3><%= t '.stack' %></h3>
     <ul class="base-ul">
-      <li><%= t '.front_end' %>: HTML (HAML, Slim), CSS (SASS), JavaScript</li>
-      <li><%= t '.back_end' %>: Ruby, Ruby on Rails,
-                                RSpec (<%= t '.testing_library'%>)</li>
+      <li><%= t '.front_end' %>:
+        HTML (HAML, Slim), CSS (SASS), JavaScript
+      </li>
+      <li><%= t '.back_end' %>:
+        Ruby, Ruby on Rails, RSpec (<%= t '.testing_library'%>)
+      </li>
       <li><%= t '.database' %>: PostgreSQL</li>
     </ul>
   </section>
@@ -15,11 +18,17 @@
   <header>
     <h3><%= t '.learning_path' %></h3>
   </header>
-    <p><%= t '.books' %>:</p>
   <section class="books">
-    <% books.each do |book| %>
+    <p><%= t '.books_in_process' %>:</p>
+    <% books.where(status: "in_process").each do |book| %>
       <%= render 'books/details', book: book %>
     <% end %>
+    <p><%= t '.books_completed' %>:</p>
+    <% books.where(status: "completed").limit(5).each do |book| %>
+      <%= render 'books/details', book: book %>
+    <% end %>
+    <%= link_to (t '.books_full_list'), books_path(locale: locale),
+      class: 'small' %>
   </section>
   <section class="courses">
     <p><%= t '.courses' %>:</p>

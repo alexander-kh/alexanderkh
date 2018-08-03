@@ -46,6 +46,9 @@
     <%= f.text_field :project_repo %>
   </div>
   <div>
+    <%= f.select :status, options_for_select(["in_process", "completed"]) %>
+  </div>
+  <div>
     <%= f.submit %>
     <%= link_to 'Cancel', books_path, class: 'button-primary' %>
   </div>

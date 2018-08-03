@@ -15,6 +15,11 @@
     <main>
       <% if signed_in? %>
         <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'button-sign-out' %>
+      <% else %>
+        <div class="locale-switcher">
+          <%= link_to "RU", url_for(locale: 'ru') %> |
+          <%= link_to "EN", url_for(locale: 'en') %>
+        </div>      
       <% end %>
       
       <% if flash.present? %>
@@ -22,10 +27,7 @@
           <div class="flash-<%= key %>"><%=h value %></div>
         <% end %>
       <% end %>
-      <div class="locale-switcher">
-        <%= link_to "RU", url_for(locale: 'ru') %> |
-        <%= link_to "EN", url_for(locale: 'en') %>
-      </div>
+      
       <%= yield %>
     </main>
     <%= render 'footer' %>

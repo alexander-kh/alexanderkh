@@ -54,5 +54,11 @@ en:
       testing_library: "for testing"
       
       learning_path: "Learning path"
-      books: "Below are recently studied books, and the ones I read now"
+      books_in_process: "Books I read now"
+      books_completed: "Recently studied books"
+      books_full_list: "Full list"
       courses: "Completed online courses"
+  
+  courses:
+    details:
+      certificate: "Certificate"

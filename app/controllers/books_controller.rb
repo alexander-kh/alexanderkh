@@ -28,7 +28,8 @@ class BooksController < ApplicationController
   
   def update
     if @book.update(book_params)
-      redirect_to books_url
+      flash[:notice] = "Book has been successfully updated"
+      redirect_to book_url(@book)
     else
       render :edit
     end
@@ -47,6 +48,7 @@ class BooksController < ApplicationController
   
   def book_params
     params.require(:book).permit(:title, :subtitle, :author, :link, :year,
-                                 :publisher, :isbn, :pages, :project_repo)
+                                 :publisher, :isbn, :pages, :project_repo,
+                                 :status)
   end
 end

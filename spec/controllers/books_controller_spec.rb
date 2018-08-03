@@ -129,7 +129,7 @@ RSpec.describe BooksController, type: :controller do
           book.reload
         
           expect(book.pages).to eq(380)
-          expect(response).to redirect_to(books_url)
+          expect(response).to redirect_to(book_url(book))
         end
       end
       
