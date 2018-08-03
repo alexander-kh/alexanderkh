@@ -1,11 +1,11 @@
-<div>
+<div class="book-title">
   <%= link_to @book.title, @book.link, target: :_blank %>
 </div>
 <div>
   <%= @book.subtitle %>
 </div>
 <div>
-  <%= @book.author %>
+  by <%= @book.author %>
 </div>
 <div>
   <%= @book.publisher %>, <%= @book.year %>
@@ -27,5 +27,5 @@
   <%= link_to 'Remove', @book, method: :delete, class: 'button-remove' %>
 </div>
 <div class="nav-link-wrapper">
-  <%= link_to 'Back', :back, class: 'nav-link' %>
+  <%= link_to 'Back', books_path, class: 'nav-link' %>
 </div>
