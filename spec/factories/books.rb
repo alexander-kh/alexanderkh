@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :book do
-    sequence :title do |n|
-      "book#{n}"
-    end
+    sequence(:title) { |n| "book#{n}" }
     subtitle "subtitle"
     author "author"
     link "http://book.test"

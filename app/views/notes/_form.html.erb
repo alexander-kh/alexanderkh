@@ -1,0 +1,15 @@
+<%= form_for [resource, note] do |f| %>
+  <div>
+    <%= f.text_area :text, cols: 70, rows: 10 %>
+  </div>
+  <div>
+    <%= f.submit %>
+    <%= link_to 'Cancel',
+      polymorphic_path(resource), class: 'button-primary' %>
+    <% if note.persisted? %>
+      <%= link_to 'Remove', polymorphic_path([resource, note]), method: :delete,
+        data: { confirm: 'Are you sure you want to delete this note?' },
+        class: 'button-remove' %>
+    <% end %>
+  </div>
+<% end %>

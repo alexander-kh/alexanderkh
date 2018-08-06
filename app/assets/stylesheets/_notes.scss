@@ -1,0 +1,22 @@
+@import "base/variables";
+
+.note {
+  width: 55%;
+  margin: 2rem 0;
+}
+
+.note-date {
+  font-size: $small-font-size;
+  text-align: right;
+}
+
+.note-content {
+  border: 1px solid #f0f0f0;
+  border-radius: 0.7rem;
+  padding: 1.7rem 1.7rem;
+}
+
+.note-edit {
+  float: right;
+  font-size: $small-font-size;
+}
