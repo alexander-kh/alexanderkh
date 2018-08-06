@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   end
   
   scope '(:locale)' do
-    resources :books
-    resources :courses
+    notes_routes = lambda do
+      resources :notes, only: [:new, :create, :edit, :update, :destroy]
+    end
+    resources :books, &notes_routes
+    resources :courses, &notes_routes
     root 'home#index', as: 'root', via: :all
   end
 end

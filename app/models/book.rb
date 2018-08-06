@@ -5,4 +5,6 @@ class Book < ApplicationRecord
   validates :title, uniqueness: { message: "already presented" }
   
   enum status: {in_process: 0, completed: 1}
+  
+  has_many :notes, as: :resource, dependent: :destroy
 end

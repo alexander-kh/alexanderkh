@@ -24,3 +24,13 @@ label {
     outline: none;
   }
 }
+
+textarea {
+  display: block;
+  border: 1px solid $light-gray;
+  resize: none;
+  color: $graphite;
+  font-family: $sans-serif;
+  font-size: $base-font-size;
+  line-height: 1.7;
+}

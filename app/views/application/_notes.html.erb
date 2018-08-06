@@ -1,0 +1,12 @@
+<% resource.notes.order(created_at: :desc).each do |note| %>
+  <div class="note">
+    <div class="note-date">
+      Updated <%= note.created_at.strftime("%b %d, %Y") %>
+    </div>
+    <div class="note-content">
+      <%= sanitize note.text %>
+    </div>
+    <%= link_to "Edit", edit_polymorphic_path([resource, note]),
+      id: dom_id(note, :edit), class: "note-edit" %>
+  </div>
+<% end %>
