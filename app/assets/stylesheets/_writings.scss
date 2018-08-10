@@ -1,0 +1,35 @@
+@import "base/variables";
+
+.writing {
+  margin: 1.5rem 0;
+}
+
+.writing-date {
+  font-size: $small-font-size;
+  margin: 1rem 0;
+}
+
+.writing-title {
+  input[type='text'] {
+    background-color: white;
+    font-size: $base-font-size;
+    width: 70%;
+  }
+  font-size: 2rem;
+}
+
+.writing-content {
+  textarea {
+    width: 70%;
+  }
+}
+
+.writing-status {
+  display: inline-block;
+}
+
+.writings-list {
+  .writing-date {
+    margin: 0;
+  }
+}

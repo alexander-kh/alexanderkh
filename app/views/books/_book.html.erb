@@ -1,7 +1,7 @@
-<div class="book-details">
+<header class='book-header'>
   <%=
     link_to_if signed_in?, book.title, book_path(book) do
       link_to book.title, book.link, target: :_blank
     end
   %> by <%= book.author %>, <%= book.year %>
-</div>
+</header>

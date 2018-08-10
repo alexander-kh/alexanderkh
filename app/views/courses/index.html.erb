@@ -1,9 +1,15 @@
 <% if signed_in? %>
-  <%= link_to 'Add a course', new_course_path, class: 'button-add-an-item' %>
+  <div class='action'>
+    <%= link_to 'Add a course', new_course_path %>
+  </div>
 <% end %>
+
 <% courses.each do |course| %>
-  <%= render 'details', course: course %>
+  
+  <section class='course'>
+    <%= render 'course', course: course %>
+  </section>
+  
 <% end %>
-<div class="nav-link-wrapper">
-  <%= link_to 'Home', root_path, class: 'nav-link' %>
-</div>
+
+<%= render 'nav_home' %>

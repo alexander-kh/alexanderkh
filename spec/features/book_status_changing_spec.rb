@@ -8,7 +8,7 @@ feature "Book status changing" do
   
   scenario "successful status changing" do
     visit edit_book_path(book)
-    select "completed"
+    choose "book_status_completed"
     click_button "Update Book"
     
     book.reload

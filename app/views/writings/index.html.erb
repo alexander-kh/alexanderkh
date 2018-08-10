@@ -1,0 +1,15 @@
+<% if signed_in? %>
+  <div class='action'>
+    <%= link_to 'Add a writing', new_writing_path %>
+  </div>
+<% end %>
+
+<% if newest_writing.present? %>
+  <%= render 'writing', writing: newest_writing %>
+<% end %>
+
+<p class='subheading'>Earlier writings:</p>
+
+<section class='writings-list'>
+  <%= render 'next_writings', writings: next_writings %>
+</section>

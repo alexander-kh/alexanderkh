@@ -1,6 +1,6 @@
 <%= form_for book do |f| %>
   <% if book.errors.any? %>
-    <div class="flash_alert">
+    <div class='flash-alert'>
       <ul>
         <% book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -19,7 +19,7 @@
   </div>
   <div>
     <%= f.label :author %>
-    <%= f.text_field :author, require: true %>
+    <%= f.text_field :author, required: true %>
   </div>
   <div>
     <%= f.label :link %>
@@ -46,10 +46,16 @@
     <%= f.text_field :project_repo %>
   </div>
   <div>
-    <%= f.select :status, options_for_select(["completed", "in_process"]) %>
+    <%= f.radio_button :status, 'in_process' %>
+    <%= f.label :status, 'in_process' %>
+    <%= f.radio_button :status, 'completed' %>
+    <%= f.label :status, 'completed' %>
   </div>
   <div>
     <%= f.submit %>
-    <%= link_to 'Cancel', book_path(book), class: 'button-primary' %>
+    <%= link_to_if book.new_record?, 'Cancel', books_path,
+      class: 'button-primary' do
+        link_to 'Cancel', book_path(book), class: 'button-primary'
+      end %>
   </div>
 <% end %>

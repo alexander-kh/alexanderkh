@@ -47,7 +47,7 @@ RSpec.describe CoursesController, type: :controller do
         it "creates new course and redirects to the courses page" do
           expect { post :create, params: { course: course_attrs } }.
             to change(Course, :count).by(1)
-          expect(response).to redirect_to(courses_url)
+          expect(response).to have_http_status(:found)
         end
       end
       

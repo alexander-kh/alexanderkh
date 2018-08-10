@@ -1,0 +1,21 @@
+@import "base/variables";
+
+.action {
+  margin: 1.5rem 0;
+}
+
+.nav-link {
+  border: none;
+  color: $graphite;
+  font-size: $small-font-size;
+  text-decoration: none;
+}
+
+.nav-link-wrapper {
+  margin-top: $base-spacing;
+}
+
+.sign-out {
+  float: right;
+  margin: 1.5rem 0;
+}

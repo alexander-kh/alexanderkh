@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "courses/index.html.erb" do
+  before do
+    view.lookup_context.prefixes << "application"
+  end
+  
   context "when authorized" do
     it "displays action for adding a new course" do
       course = FactoryBot.create(:course)

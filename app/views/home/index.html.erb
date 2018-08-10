@@ -1,40 +1,15 @@
 <section>
-  <h2 class="welcome"><%= t '.welcome' %></h2>
+  <header class='welcome'><%= t '.welcome' %></header>
   <p><%= t '.about_me' %></p>
-  <section>
-    <h3><%= t '.stack' %></h3>
-    <ul class="base-ul">
-      <li><%= t '.front_end' %>:
-        HTML (HAML, Slim), CSS (SASS), JavaScript
-      </li>
-      <li><%= t '.back_end' %>:
-        Ruby, Ruby on Rails, RSpec (<%= t '.testing_library'%>)
-      </li>
-      <li><%= t '.database' %>: PostgreSQL</li>
-    </ul>
-  </section>
+  <%= render 'stack' %>
 </section>
-<section>
-  <header>
-    <h3><%= t '.learning_path' %></h3>
-  </header>
+
+<section class='learning'>
   <section class="books">
-    <p><%= t '.books_in_process' %>:</p>
-    <% books.where(status: "in_process").each do |book| %>
-      <%= render 'books/details', book: book %>
-    <% end %>
-    <p><%= t '.books_completed' %>:</p>
-    <% books.where(status: "completed").limit(5).each do |book| %>
-      <%= render 'books/details', book: book %>
-    <% end %>
-    <%= link_to (t '.books_full_list'), books_path(locale: locale),
-      class: 'small' %>
+    <%= render 'books_in_process' %>
+    <%= render 'books_completed' %>
   </section>
-  <section class="courses">
-    <p><%= t '.courses' %>:</p>
-    <p>
-    <% courses.each do |course| %>
-      <%= render 'courses/details', course: course %>
-    <% end %>
+  <section class='courses'>
+    <%= render 'courses' %>
   </section>
 </section>
