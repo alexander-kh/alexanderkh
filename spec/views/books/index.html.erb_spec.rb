@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "books/index.html.erb" do
+  before do
+    view.lookup_context.prefixes << "application"
+  end
+  
   context "when authorized" do
     it "displays action for adding a new book" do
       book = FactoryBot.create(:book)

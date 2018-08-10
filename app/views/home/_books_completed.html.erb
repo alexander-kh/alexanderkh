@@ -1,0 +1,10 @@
+<article>
+  <p class='subheading'><%= t '.books_completed' %>:</p>
+  
+  <% books_completed.limit(5).each do |book| %>
+    <%= render 'books/book', book: book %>
+  <% end %>
+  
+  <%= link_to (t '.books_full_list'), books_path(locale: locale),
+    class: 'small' %>
+</article>

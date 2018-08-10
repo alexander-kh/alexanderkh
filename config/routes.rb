@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
     resources :books, &notes_routes
     resources :courses, &notes_routes
+    resources :writings
     root 'home#index', as: 'root', via: :all
   end
+  
 end

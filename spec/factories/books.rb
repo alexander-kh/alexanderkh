@@ -8,5 +8,6 @@ FactoryBot.define do
     publisher "publisher"
     isbn "isbn"
     pages 375
+    status "completed"
   end
 end

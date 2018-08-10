@@ -7,7 +7,15 @@ ru:
       contact:   "Контакты"
       email:     "Написать письмо"
       full_name: "Александр Хлипун"
+    
+    nav_home:
+      home: "На главную"
   
+  layouts:
+    application:
+      russian:   "Русский"
+      english:   "Английский"
+    
   home:
     index:
       welcome: "Здравствуйте! Меня зовут Александр"
@@ -16,19 +24,30 @@ ru:
                  совершенствование в соответствии с актуальными требованиями. \
                  Придерживаюсь принципа разработки через тестирование (TDD) и \
                  концепций постоянной интеграции и доставки (CI/CD)."
-                 
+    
+    stack:
       stack: "Используемый стек:"
       front_end: "Внешний интерфейс"
       back_end: "Программная часть"
       database: "Управление данными"
       testing_library: "для тестирования"
-      
-      learning_path: "Обучение"
+          
+    books_in_process:
       books_in_process: "Книги, которые изучаю сейчас"
+    
+    books_completed:
       books_completed: "Недавно проработанные книги"
       books_full_list: "Перейти к полному списку"
+    
+    courses:
       courses: "Завершённые онлайн-курсы"
   
+  books:
+    book_details:
+      publisher: "Издательство"
+      pages: "Страниц"
+      project: "Проект"
+  
   courses:
-    details:
+    course:
       certificate: "Сертификат"

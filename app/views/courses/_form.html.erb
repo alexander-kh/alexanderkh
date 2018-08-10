@@ -1,6 +1,6 @@
 <%= form_for course do |f| %>
   <% if course.errors.any? %>
-    <div>
+    <div class='flash-alert'>
       <ul>
         <% course.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -27,6 +27,9 @@
   </div>
   <div>
     <%= f.submit %>
-    <%= link_to 'Cancel', course_path(course), class: 'button-primary' %>
+    <%= link_to_if course.new_record?, 'Cancel', courses_path,
+      class: 'button-primary' do
+        link_to 'Cancel', course_path(course), class: 'button-primary'
+      end %>
   </div>
 <% end %>

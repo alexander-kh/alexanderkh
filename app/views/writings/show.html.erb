@@ -1,0 +1,10 @@
+<%= render 'writing', writing: @writing %>
+
+<div>
+  <%= link_to 'Edit', edit_writing_path(@writing),
+    id: dom_id(@writing, :edit) %>
+</div>
+
+<div class='nav-link-wrapper'>
+  <%= link_to 'Writings list', writings_path, class: 'nav-link' %>
+</div>

@@ -20,7 +20,7 @@ feature "admin access" do
     admin = FactoryBot.create(:admin)
     sign_in_with(admin.email, admin.password)
     
-    expect(page).to have_selector("input[value='Sign out']")
+    expect(page).to have_selector("a[href='/sign_out']")
   end
   
   scenario "signing in with invalid data" do

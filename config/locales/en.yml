@@ -32,12 +32,20 @@
 en:
   application:
     footer:
-      learning:  "Learning"
-      books:     "Books"
-      courses:   "Courses"
-      contact:   "Contact"
-      email:     "E-mail"
+      learning: "Learning"
+      books: "Books"
+      courses: "Courses"
+      contact: "Contact"
+      email: "E-mail"
       full_name: "Alexander Khlipun"
+    
+    nav_home:
+      home: "Home"
+  
+  layouts:
+    application:
+      russian: "Russian"
+      english: "English"
   
   home:
     index:
@@ -47,18 +55,30 @@ en:
                  actual requirements. \
                  I use a test-driven development approach (TDD) and follow \
                  continuous integration and delivery principles (CI/CD)."
+    
+    stack:
       stack: "Stack:"
       front_end: "Front-end"
       back_end: "Back-end"
       database: "Database layer"
       testing_library: "for testing"
-      
-      learning_path: "Learning path"
+    
+    books_in_process:
       books_in_process: "Books I read now"
+    
+    books_completed:
       books_completed: "Recently studied books"
       books_full_list: "Full list"
+    
+    courses:
       courses: "Completed online courses"
   
+  books:
+    book_details:
+      publisher: "Publisher"
+      pages: "Pages"
+      project: "Project"
+  
   courses:
-    details:
+    course:
       certificate: "Certificate"

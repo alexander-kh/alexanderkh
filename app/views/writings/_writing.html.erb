@@ -1,0 +1,11 @@
+<article class='writing'>
+  <div class='writing-title'>
+    <%= link_to writing.title, writing_path(writing) %>
+  </div>
+  <div class='writing-date'>
+    <%= writing.created_at.strftime('%b %d %Y') %>
+  </div>
+  <div class='writing-content'>
+    <%= sanitize writing.content %>
+  </div>
+</article>

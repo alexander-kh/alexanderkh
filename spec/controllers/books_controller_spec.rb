@@ -44,10 +44,10 @@ RSpec.describe BooksController, type: :controller do
       before { sign_in_as_admin }
       
       context "when attributes are valid" do
-        it "creates new book and redirects to the books page" do
+        it "creates new book and redirects to the book page" do
           expect { post :create, params: { book: book_attrs } }.
             to change(Book, :count).by(1)
-          expect(response).to redirect_to(books_url)
+          expect(response).to have_http_status(:found)
         end
       end
       

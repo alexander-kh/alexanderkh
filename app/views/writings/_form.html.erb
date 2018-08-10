@@ -1,0 +1,30 @@
+<%= form_for writing do |f| %>
+  <div class='writing'>
+    <div class='writing-title'>
+      <%= f.label :title %>
+      <%= f.text_field :title, required: true %>
+    </div>
+    <div class='writing-content'>
+      <%= f.label :content %>
+      <%= f.text_area :content, cols: 70, rows: 10, required: true %>
+    </div>
+    <div class='writing-status'>
+      <%= f.radio_button :status, 'personal', checked: true %>
+      <%= f.label :status, 'personal' %>
+      <%= f.radio_button :status, 'open' %>
+      <%= f.label :status, 'open' %>
+    </div>
+    <div>
+      <%= f.submit %>
+      <%= link_to_if writing.new_record?, 'Cancel', writings_path,
+        class: 'button-primary' do
+          link_to 'Cancel', writing_path(writing), class: 'button-primary'
+        end %>
+      <% if writing.persisted? %>
+        <%= link_to 'Remove', writing_path(writing), method: :delete,
+          data: { confirm: 'Are you sure you want to remove this writing?' },
+          class: 'button-remove' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

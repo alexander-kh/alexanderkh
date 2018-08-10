@@ -1,0 +1,7 @@
+<article>
+  <p class='subheading'><%= t '.courses' %>:</p>
+  
+  <% courses.each do |course| %>
+    <%= render 'courses/course', course: course %>
+  <% end %>
+</article>

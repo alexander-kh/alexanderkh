@@ -1,20 +1,16 @@
 <% if signed_in? %>
-  <%= link_to 'Add a book', new_book_path, class: 'button-add-an-item' %>
+  <div class='action'>
+    <%= link_to 'Add a book', new_book_path %>
+  </div>
 <% end %>
+
 <% books.each do |book| %>
-  <%= render 'details', book: book %>
-  <div class="small">
-    <ul class="base-ul">
-      <li class="edge">Publisher: <%= book.publisher %></li>
-      <li class="edge">Pages: <%= book.pages %></li>
-      <% if book.project_repo.present? %>
-        <li class="edge">
-          Project: <%= link_to 'GitHub', book.project_repo, target: :_blank %>
-        </li>
-      <% end %>
-    </ul>
-  </div>  
+
+  <section class='book'>
+    <%= render 'book', book: book %>
+    <%= render 'book_details', book: book %>    
+  </section>
+  
 <% end %>
-<div class="nav-link-wrapper">
-  <%= link_to 'Home', root_path, class: 'nav-link' %>
-</div>
+
+<%= render 'nav_home' %>

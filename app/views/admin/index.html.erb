@@ -1,9 +1,17 @@
-<div>
-  <%= link_to 'Books', books_path %>
-</div>
-<div>
-  <%= link_to 'Courses', courses_path %>
-</div>
-<div class="nav-link-wrapper">
-  <%= link_to 'Home', root_path, class: 'nav-link' %>
-</div>
+<section class='categories'>
+  
+  <section class='category'>
+    <%= link_to 'Books', books_path %>
+  </section>
+
+  <section class='category'>
+    <%= link_to 'Courses', courses_path %>
+  </section>
+
+  <section class='category'>
+    <%= link_to 'Writings', writings_path %>
+  </section>
+  
+<section>
+
+<%= render 'nav_home' %>

@@ -3,11 +3,15 @@ module HomeHelper
     Book.all
   end
   
-  def latest_added_books(n)
-    books.first(n)
-  end
-  
   def courses
     Course.all
+  end
+  
+  def books_in_process
+    Book.where(status: "in_process")
+  end
+  
+  def books_completed
+    Book.where(status: "completed")
   end
 end

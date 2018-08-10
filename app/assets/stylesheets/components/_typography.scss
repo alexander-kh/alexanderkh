@@ -51,17 +51,6 @@ ul {
   }
 }
 
-.nav-link {
-  border: none;
-  color: $graphite;
-  font-size: $small-font-size;
-  text-decoration: none;
-}
-
-.nav-link-wrapper {
-  margin-top: $base-spacing;
-}
-
 .flash-notice {
   color: complement($deep-pink);
   font-size: $small-font-size;

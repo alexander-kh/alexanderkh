@@ -1,15 +1,15 @@
-<div class="course-details">
+<section class='course'>
   <%=
     link_to_if signed_in?, course.title, course_path(course) do
       link_to course.title, course.link, target: :_blank
     end
   %> | <%= course.platform %>
-  <div class="small">
-    <ul class="base-ul">
-      <li class="edge">
+  <div class='small'>
+    <ul class='base-ul'>
+      <li class='edge'>
         <%= link_to (t '.certificate'), course.certificate_url,
           target: :_blank %>
       </li>
     </ul>
   </div>
-</div>
+</section>

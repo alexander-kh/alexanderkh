@@ -1,0 +1,8 @@
+<% writings.each do |writing| %>
+  <article class='writing'>
+    <%= link_to writing.title, writing_path(writing) %>    
+    <div class='writing-date'>
+      <%= writing.created_at.strftime('%b %d %Y') %>
+    </div>
+  </article>
+<% end %>

@@ -38,9 +38,16 @@ main {
   padding: 1.75rem 3.5rem;
 }
 
+.heading {
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(18,170,82,0.85);
+}
+
 .locale-switcher {
   font-size: $small-font-size;
   position: absolute;
+  margin-top: 1.5rem;
   right: 3.5rem;
-  top: 1.75rem;
 }

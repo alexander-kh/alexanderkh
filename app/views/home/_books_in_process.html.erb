@@ -1,0 +1,7 @@
+<article>
+  <p class='subheading'><%= t '.books_in_process' %>:</p>
+  
+  <% books_in_process.each do |book| %>
+    <%= render 'books/book', book: book %>
+  <% end %>
+</article>

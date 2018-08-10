@@ -2,6 +2,20 @@
 
 .welcome {
   color: rgba(18,170,82,0.85);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+}
+
+.stack {
+  .subheading {
+    margin: 1rem 0;
+  }
+}
+
+.subheading {
+  font-size: 1.17rem;
+  margin: 1.5rem 0 1rem 0;
 }
 
 .books, .courses {
