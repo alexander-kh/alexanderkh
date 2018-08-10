@@ -4,13 +4,14 @@
   </div>
 <% end %>
 
-<% books.each do |book| %>
+<div class='subheading'><%= t '.books_in_process' %>:</div>
+<section>
+  <%= render 'books', books: books_in_process %>
+</section>
 
-  <section class='book'>
-    <%= render 'book', book: book %>
-    <%= render 'book_details', book: book %>    
-  </section>
-  
-<% end %>
+<div class='subheading'><%= t '.books_completed' %>:</div>
+<section>
+  <%= render 'books', books: books_completed %>
+</section>
 
 <%= render 'nav_home' %>

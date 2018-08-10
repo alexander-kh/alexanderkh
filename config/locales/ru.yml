@@ -47,7 +47,14 @@ ru:
       publisher: "Издательство"
       pages: "Страниц"
       project: "Проект"
+    
+    index:
+      books_in_process: "Книги, которые изучаю сейчас"
+      books_completed: "Проработанные книги"
   
   courses:
     course:
       certificate: "Сертификат"
+    
+    index:
+      courses_completed: "Завершённые онлайн-курсы"

@@ -78,7 +78,14 @@ en:
       publisher: "Publisher"
       pages: "Pages"
       project: "Project"
+    
+    index:
+      books_in_process: "Books I read now"
+      books_completed: "Studied books"
   
   courses:
     course:
       certificate: "Certificate"
+    
+    index:
+      courses_completed: "Completed online courses"
